@@ -3,14 +3,16 @@ import styles from "../styles/Home.module.css";
 import Strobe from "../public/output2.gif";
 import Moose from "../public/moose.gif";
 import Marquee from "react-fast-marquee";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 
 function App() {
-  const [audio, setAudio] = useState<HTMLAudioElement | null>(null);
-  useEffect(() => {
-    setAudio(new Audio("/musik2.mp3"));
-    console.log("EFFFECT", audio);
-  }, []);
+  const audio = useRef<HTMLAudioElement | undefined>(
+    typeof Audio !== "undefined" ? new Audio("/musik2.mp3") : undefined
+  );
+  // const [audio, setAudio] = useState<HTMLAudioElement | null>(null);
+  // useEffect(() => {
+  //   setAudio(new Audio("/musik2.mp3"));
+  // }, []);
   const [audioPlaying, setAudioPlaying] = useState(false);
   return (
     <div className={styles.App}>
@@ -44,7 +46,7 @@ function App() {
           onClick={() => {
             if (!audioPlaying) {
               setAudioPlaying(true);
-              audio?.play();
+              audio.current?.play();
               // play();
               // play({
               //   forceSoundEnabled: true,
