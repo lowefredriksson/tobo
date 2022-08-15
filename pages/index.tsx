@@ -1,7 +1,7 @@
 import type { NextPage } from "next";
 import Head from "next/head";
 import dynamic from "next/dynamic";
-const App = dynamic(import("./App"), { ssr: false });
+import App from "./App";
 
 const Home: NextPage = () => {
   return (
