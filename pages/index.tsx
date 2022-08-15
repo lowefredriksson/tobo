@@ -172,11 +172,11 @@ function App() {
         >
           <div className={styles.OpenButton}>Klicka inte på tigerälgen!!!</div>
           <Image
-            height={300}
-            width={300}
+            height={260}
+            width={260}
             style={{
               alignSelf: "center",
-              borderRadius: "3vh",
+              borderRadius: "5px",
             }}
             src={Moose}
             alt="This is an animated gif image, but it does not move"
