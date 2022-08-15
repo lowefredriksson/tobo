@@ -13,6 +13,7 @@ function App() {
   // useEffect(() => {
   //   setAudio(new Audio("/musik2.mp3"));
   // }, []);
+  useEffect(() => console.log(require("../sound/musik2.mp3")), []);
   const [audioPlaying, setAudioPlaying] = useState(false);
   return (
     <div className={styles.App}>
