@@ -4,7 +4,6 @@ import Image from "next/image";
 import styles from "../styles/Home.module.css";
 import Strobe from "../public/output2.gif";
 import Moose from "../public/moose.gif";
-import Music from "../public/musik2.mp3";
 import Marquee from "react-fast-marquee";
 import { useRef, useState } from "react";
 import useSound from "use-sound";
@@ -27,7 +26,7 @@ export default Home;
 function App() {
   // const audio = new Audio(Music);
   // audio.preload = "auto";
-  const [play] = useSound(Music);
+  const [play] = useSound("/musik2.mp3");
   const [audioPlaying, setAudioPlaying] = useState(false);
   return (
     <div className={styles.App}>
