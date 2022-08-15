@@ -82,10 +82,20 @@ function App() {
 }
 function Content() {
   return (
-    <>
+    <div
+      style={{
+        flex: 1,
+        width: "100%",
+        height: "100%",
+        flexDirection: "column",
+        alignItems: "center",
+        display: "flex",
+        overflow: "scroll",
+      }}
+    >
       <Marquee
         style={{
-          position: "absolute",
+          position: "fixed",
           top: 0,
           zIndex: 1000,
           left: 0,
@@ -104,67 +114,55 @@ function Content() {
         kommer att bli bra | In a galaxy far far away there is a place called...
         Tobo | Allt kommer att bli bra |{" "}
       </Marquee>
-      <div
-        style={{
-          flex: 1,
-          width: "100%",
-          height: "100%",
-          flexDirection: "column",
-          alignItems: "center",
-          display: "flex",
-          overflow: "scroll",
-        }}
-      >
-        <div className={styles.ContentContainer}>
-          <div className={styles.Title}>TOBO</div>
-          <div className={styles.Date}>27 augusti</div>
-          <div
-            style={{ maxWidth: "1000px", alignSelf: "center", padding: "5vw" }}
-          >
-            <span className={styles.Intro}>
-              En gång ingen gång, två gånger en vana, tre gånger en tradition!
-              Sagolika Tobo är tillbaka för EP. III!
-            </span>
-            <span className={styles.Intro}>
-              Ta med er vänner och skåla in den ljuva sensommaren bland goda
-              vänner, skogskonst och konstanta good vibes!
-            </span>
-            <div style={{ padding: "10px", paddingTop: "50px" }}>
-              <span className={styles.IntroTitleRed}>MUSIK</span>
-            </div>
-            <span className={styles.Intro}>
-              Dansvänlig musik kommer att spelas, allt som flyger! Från solig
-              eftermiddag till midnatt och in på småtimmarna.
-            </span>
-            <div style={{ padding: "10px", paddingTop: "50px" }}>
-              <span className={styles.IntroTitle}>PLATS</span>
-            </div>
-            <span className={styles.Intro}>Tobo Bruksmuseum.</span>
-            <div style={{ padding: "10px", paddingTop: "50px" }}>
-              <span className={styles.IntroTitleRed}>FÄRDMEDEL</span>
-            </div>
-            <span className={styles.Intro}>
-              Tåg till Tobo från Uppsala tar ca 30 min och promenad till festen
-              tar max 5 min från stationen.
-            </span>
-            <div style={{ padding: "10px", paddingTop: "50px" }}>
-              <span className={styles.IntroTitle}>MAT UNDER DAGEN</span>
-            </div>
-            <span className={styles.Intro}>
-              Det finns en pizzeria som gör bra ”sunkpizza” och kebab, eller vad
-              som nu floats your boat.
-            </span>
-            <div style={{ padding: "10px", paddingTop: "50px" }}>
-              <span className={styles.IntroTitleRed}>SOVPLATS</span>
-            </div>
-            <span className={styles.Intro}>
-              Plats för tält och luftmadrass kan lösas. Hör av er innan vid
-              intresse! Frukost & kaffe dagen efter.
-            </span>
+      <div className={styles.ContentContainer}>
+        <div className={styles.Title}>TOBO</div>
+        <div className={styles.Date}>27 augusti</div>
+        <div
+          style={{ maxWidth: "1000px", alignSelf: "center", padding: "5vw" }}
+        >
+          <span className={styles.Intro}>
+            En gång ingen gång, två gånger en vana, tre gånger en tradition!
+            Sagolika Tobo är tillbaka för EP. III!
+          </span>
+          <span className={styles.Intro}>
+            Ta med er vänner och skåla in den ljuva sensommaren bland goda
+            vänner, skogskonst och konstanta good vibes!
+          </span>
+          <div style={{ padding: "10px", paddingTop: "50px" }}>
+            <span className={styles.IntroTitleRed}>MUSIK</span>
           </div>
+          <span className={styles.Intro}>
+            Dansvänlig musik kommer att spelas, allt som flyger! Från solig
+            eftermiddag till midnatt och in på småtimmarna.
+          </span>
+          <div style={{ padding: "10px", paddingTop: "50px" }}>
+            <span className={styles.IntroTitle}>PLATS</span>
+          </div>
+          <span className={styles.Intro}>Tobo Bruksmuseum.</span>
+          <div style={{ padding: "10px", paddingTop: "50px" }}>
+            <span className={styles.IntroTitleRed}>FÄRDMEDEL</span>
+          </div>
+          <span className={styles.Intro}>
+            Tåg till Tobo från Uppsala tar ca 30 min och promenad till festen
+            tar max 5 min från stationen.
+          </span>
+          <div style={{ padding: "10px", paddingTop: "50px" }}>
+            <span className={styles.IntroTitle}>MAT UNDER DAGEN</span>
+          </div>
+          <span className={styles.Intro}>
+            Det finns en pizzeria som gör bra ”sunkpizza” och kebab, eller vad
+            som nu floats your boat.
+          </span>
+          <div style={{ padding: "10px", paddingTop: "50px" }}>
+            <span className={styles.IntroTitleRed}>SOVPLATS</span>
+          </div>
+          <span className={styles.Intro}>
+            Plats för tält och luftmadrass kan lösas. Hör av er innan vid
+            intresse! Frukost & kaffe dagen efter.
+          </span>
         </div>
       </div>
-    </>
+    </div>
   );
 }
 
