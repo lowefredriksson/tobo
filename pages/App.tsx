@@ -9,6 +9,7 @@ function App() {
   const [audio, setAudio] = useState<HTMLAudioElement | null>(null);
   useEffect(() => {
     setAudio(new Audio("/musik2.mp3"));
+    console.log("EFFFECT", audio);
   }, []);
   const [audioPlaying, setAudioPlaying] = useState(false);
   return (
