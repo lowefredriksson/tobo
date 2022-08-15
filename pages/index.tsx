@@ -4,13 +4,10 @@ import Image from "next/image";
 import styles from "../styles/Home.module.css";
 import Strobe from "../public/output2.gif";
 import Moose from "../public/moose.gif";
+import Music from "../public/musik2.mp3";
 import Marquee from "react-fast-marquee";
-import {
-  AudioHTMLAttributes,
-  DetailedHTMLProps,
-  useRef,
-  useState,
-} from "react";
+import { useRef, useState } from "react";
+import useSound from "use-sound";
 
 const Home: NextPage = () => {
   return (
@@ -30,14 +27,10 @@ export default Home;
 function App() {
   // const audio = new Audio(Music);
   // audio.preload = "auto";
-  const audioRef = useRef<DetailedHTMLProps<
-    AudioHTMLAttributes<HTMLAudioElement>,
-    HTMLAudioElement
-  > | null>(null);
+  const [play] = useSound(Music);
   const [audioPlaying, setAudioPlaying] = useState(false);
   return (
     <div className={styles.App}>
-      <audio ref={audioRef as any} src="../public/musik2.mp3" preload="auto" />
       <div
         style={{
           position: "absolute",
@@ -173,7 +166,7 @@ function App() {
           onClick={() => {
             if (!audioPlaying) {
               setAudioPlaying(true);
-              // (audioRef.current as any)?.play();
+              play();
             }
           }}
         >
