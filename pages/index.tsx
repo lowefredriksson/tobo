@@ -172,7 +172,7 @@ function App() {
           onClick={() => {
             if (!audioPlaying) {
               setAudioPlaying(true);
-              audioRef.current?.play();
+              (audioRef.current as any)?.play();
             }
           }}
         >
