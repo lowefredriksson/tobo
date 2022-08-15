@@ -20,12 +20,6 @@ const Home: NextPage = () => {
         <title>Tobo</title>
         <meta name="description" content="Tobobobobo" />
         <link rel="icon" href="/favicon.ico" />
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-        <link
-          href="https://fonts.googleapis.com/css2?family=Bowlby+One+SC&family=IBM+Plex+Mono:wght@300&family=Sonsie+One&display=swap"
-          rel="stylesheet"
-        />
       </Head>
       <App />
     </div>
