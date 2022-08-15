@@ -5,7 +5,7 @@ import styles from "../styles/Home.module.css";
 import Strobe from "../public/output2.gif";
 import Moose from "../public/moose.gif";
 import Marquee from "react-fast-marquee";
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import useSound from "use-sound";
 
 const Home: NextPage = () => {
@@ -24,7 +24,10 @@ const Home: NextPage = () => {
 export default Home;
 
 function App() {
-  const [play] = useSound("/musik2.mp3");
+  const [audio, setAudio] = useState<HTMLAudioElement | null>(null);
+  useEffect(() => {
+    setAudio(new Audio("/musik2.mp3"));
+  }, []);
   const [audioPlaying, setAudioPlaying] = useState(false);
   return (
     <div className={styles.App}>
@@ -58,9 +61,10 @@ function App() {
           onClick={() => {
             if (!audioPlaying) {
               setAudioPlaying(true);
-              play({
-                forceSoundEnabled: true,
-              });
+              audio?.play();
+              // play({
+              //   forceSoundEnabled: true,
+              // });
             }
           }}
         >
