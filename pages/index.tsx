@@ -14,14 +14,14 @@ import {
 
 const Home: NextPage = () => {
   return (
-    <div style={{ width: "100vw", height: "100vh" }}>
+    <>
       <Head>
         <title>Tobo</title>
         <meta name="description" content="Tobobobobo" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <App />
-    </div>
+    </>
   );
 };
 
@@ -65,7 +65,8 @@ function App() {
       <div
         style={{
           flex: 1,
-          width: "100vw",
+          width: "100%",
+          height: "100%",
           flexDirection: "column",
           alignItems: "center",
           display: "flex",
@@ -172,7 +173,7 @@ function App() {
           onClick={() => {
             if (!audioPlaying) {
               setAudioPlaying(true);
-              (audioRef.current as any)?.play();
+              // (audioRef.current as any)?.play();
             }
           }}
         >
