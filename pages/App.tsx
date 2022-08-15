@@ -47,6 +47,7 @@ function App() {
             if (!audioPlaying) {
               setAudioPlaying(true);
               audio.current?.play();
+              console.log("audio.current", audio.current);
               // play();
               // play({
               //   forceSoundEnabled: true,
