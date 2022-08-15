@@ -4,6 +4,8 @@ import Strobe from "../public/output2.gif";
 import Moose from "../public/moose.gif";
 import Marquee from "react-fast-marquee";
 import { useEffect, useRef, useState } from "react";
+import dynamic from "next/dynamic";
+const AudioComp = dynamic(() => import("../components/Audio"), { ssr: false });
 
 function App() {
   // const audio = useRef<HTMLAudioElement | undefined>(
@@ -111,9 +113,7 @@ function Content() {
         <div className={styles.ContentContainer}>
           <div className={styles.Title}>TOBO</div>
           <div className={styles.Date}>27 augusti</div>
-          <audio controls>
-            <source src="/musik2.mp3" type="audio/mpeg" />
-          </audio>
+          <AudioComp />
           <div
             style={{ maxWidth: "1000px", alignSelf: "center", padding: "5vw" }}
           >
