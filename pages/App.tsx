@@ -6,9 +6,9 @@ import Marquee from "react-fast-marquee";
 import { useEffect, useRef, useState } from "react";
 
 function App() {
-  const audio = useRef<HTMLAudioElement | undefined>(
-    typeof Audio !== "undefined" ? new Audio("/musik2.mp3") : undefined
-  );
+  // const audio = useRef<HTMLAudioElement | undefined>(
+  //   typeof Audio !== "undefined" ? new Audio("/musik2.mp3") : undefined
+  // );
   // const [audio, setAudio] = useState<HTMLAudioElement | null>(null);
   // useEffect(() => {
   //   setAudio(new Audio("/musik2.mp3"));
@@ -46,8 +46,8 @@ function App() {
           onClick={() => {
             if (!audioPlaying) {
               setAudioPlaying(true);
-              audio.current?.play();
-              console.log("audio.current", audio.current);
+              // audio.current?.play();
+              // console.log("audio.current", audio.current);
               // play();
               // play({
               //   forceSoundEnabled: true,
@@ -111,6 +111,7 @@ function Content() {
         <div className={styles.ContentContainer}>
           <div className={styles.Title}>TOBO</div>
           <div className={styles.Date}>27 augusti</div>
+          <audio autoPlay src="/musik2.mp3" type="audio/mpeg" controls />
           <div
             style={{ maxWidth: "1000px", alignSelf: "center", padding: "5vw" }}
           >
