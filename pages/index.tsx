@@ -4,7 +4,6 @@ import Image from "next/image";
 import styles from "../styles/Home.module.css";
 import Strobe from "../public/output2.gif";
 import Moose from "../public/moose.gif";
-import Music from "../public/musik2.mp3";
 import Marquee from "react-fast-marquee";
 import {
   AudioHTMLAttributes,
@@ -38,7 +37,7 @@ function App() {
   const [audioPlaying, setAudioPlaying] = useState(false);
   return (
     <div className={styles.App}>
-      <audio ref={audioRef as any} src={Music} preload="auto" />
+      <audio ref={audioRef as any} src="../public/musik2.mp3" preload="auto" />
       <div
         style={{
           position: "absolute",
