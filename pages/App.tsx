@@ -1,3 +1,4 @@
+import React, { useImperativeHandle } from "react";
 import Image from "next/image";
 import styles from "../styles/Home.module.css";
 import Strobe from "../public/output2.gif";
@@ -8,71 +9,75 @@ import dynamic from "next/dynamic";
 const AudioComp = dynamic(() => import("../components/Audio"), { ssr: false });
 
 function App() {
-  // const audio = useRef<HTMLAudioElement | undefined>(
-  //   typeof Audio !== "undefined" ? new Audio("/musik2.mp3") : undefined
-  // );
+  const audio = useRef<HTMLAudioElement | null>(null);
   // const [audio, setAudio] = useState<HTMLAudioElement | null>(null);
   // useEffect(() => {
   //   setAudio(new Audio("/musik2.mp3"));
   // }, []);
   const [audioPlaying, setAudioPlaying] = useState(false);
   return (
-    <div className={styles.App}>
-      <div
-        style={{
-          position: "absolute",
-          top: 0,
-          bottom: 0,
-          overflow: "hidden",
-          left: 0,
-          right: 0,
-          zIndex: 0,
-          display: "flex",
-        }}
-      >
-        <Image
-          layout="fill"
-          style={{
-            minWidth: "100%",
-            minHeight: "100%",
-            alignSelf: "center",
-            opacity: 0.5,
-          }}
-          src={Strobe}
-          alt="This is an animated gif image, but it does not move"
-        />
-      </div>
-      {!audioPlaying ? (
+    <>
+      <AudioComp isPlaying={audioPlaying} />
+      <div className={styles.App}>
         <div
-          className={styles.MoosePageContainer}
-          onClick={() => {
-            if (!audioPlaying) {
-              setAudioPlaying(true);
-              // audio.current?.play();
-              // console.log("audio.current", audio.current);
-              // play();
-              // play({
-              //   forceSoundEnabled: true,
-              // });
-            }
+          style={{
+            position: "absolute",
+            top: 0,
+            bottom: 0,
+            overflow: "hidden",
+            left: 0,
+            right: 0,
+            zIndex: 0,
+            display: "flex",
           }}
         >
-          <div className={styles.OpenButton}>Klicka inte på tigerälgen!!!</div>
           <Image
-            height={260}
-            width={260}
+            layout="fill"
             style={{
+              minWidth: "100%",
+              minHeight: "100%",
               alignSelf: "center",
-              borderRadius: "5px",
+              opacity: 0.5,
             }}
-            src={Moose}
+            src={Strobe}
             alt="This is an animated gif image, but it does not move"
           />
         </div>
-      ) : (
-        <Content />
-      )}
-    </div>
+        {!audioPlaying ? (
+          <div
+            className={styles.MoosePageContainer}
+            onClick={() => {
+              if (!audioPlaying) {
+                setAudioPlaying(true);
+                // console.log("audio.current", audio.current);
+                //audio.current?.play();
+                // console.log("audio.current", audio.current);
+                // play();
+                // play({
+                //   forceSoundEnabled: true,
+                // });
+              }
+            }}
+          >
+            <div className={styles.OpenButton}>
+              Klicka inte på tigerälgen!!!
+            </div>
+            <Image
+              height={260}
+              width={260}
+              style={{
+                alignSelf: "center",
+                borderRadius: "5px",
+              }}
+              src={Moose}
+              alt="This is an animated gif image, but it does not move"
+            />
+          </div>
+        ) : (
+          <Content />
+        )}
+      </div>
+    </>
   );
 }
 function Content() {
@@ -113,7 +118,6 @@ function Content() {
         <div className={styles.ContentContainer}>
           <div className={styles.Title}>TOBO</div>
           <div className={styles.Date}>27 augusti</div>
-          <AudioComp />
           <div
             style={{ maxWidth: "1000px", alignSelf: "center", padding: "5vw" }}
           >
