@@ -24,8 +24,6 @@ const Home: NextPage = () => {
 export default Home;
 
 function App() {
-  // const audio = new Audio(Music);
-  // audio.preload = "auto";
   const [play] = useSound("/musik2.mp3");
   const [audioPlaying, setAudioPlaying] = useState(false);
   return (
@@ -54,6 +52,59 @@ function App() {
           alt="This is an animated gif image, but it does not move"
         />
       </div>
+      {!audioPlaying ? (
+        <div
+          className={styles.MoosePageContainer}
+          onClick={() => {
+            if (!audioPlaying) {
+              setAudioPlaying(true);
+              play();
+            }
+          }}
+        >
+          <div className={styles.OpenButton}>Klicka inte på tigerälgen!!!</div>
+          <Image
+            height={260}
+            width={260}
+            style={{
+              alignSelf: "center",
+              borderRadius: "5px",
+            }}
+            src={Moose}
+            alt="This is an animated gif image, but it does not move"
+          />
+        </div>
+      ) : (
+        <Content />
+      )}
+    </div>
+  );
+}
+
+function Content() {
+  return (
+    <>
+      <Marquee
+        style={{
+          position: "absolute",
+          top: 0,
+          zIndex: 1000,
+          left: 0,
+          right: 0,
+          fontFamily: "IBM Plex Mono",
+          padding: "1vh",
+          color: "rgb(200,60,60)",
+          backgroundColor: "rgb(240,180,90)",
+        }}
+        gradient={false}
+        speed={100}
+      >
+        Tobobobbobobobobobobbobobobobobobobobobobobobo | Allt kommer att bli bra
+        | In a galaxy far far away there is a place called... Tobo | Allt kommer
+        att bli bra | Tobobobbobobobobobobbobobobobobobobobobobobobo | Allt
+        kommer att bli bra | In a galaxy far far away there is a place called...
+        Tobo | Allt kommer att bli bra |{" "}
+      </Marquee>
       <div
         style={{
           flex: 1,
@@ -65,38 +116,7 @@ function App() {
           overflow: "scroll",
         }}
       >
-        <div
-          style={{
-            zIndex: 5,
-            width: "100vw",
-            display: "flex",
-            flexDirection: "column",
-            paddingBottom: "200px",
-            justifyContent: "center",
-          }}
-        >
-          <Marquee
-            style={{
-              position: "absolute",
-              top: 0,
-              zIndex: 1000,
-              left: 0,
-              right: 0,
-              fontFamily: "IBM Plex Mono",
-              padding: "1vh",
-              color: "rgb(200,60,60)",
-              backgroundColor: "rgb(240,180,90)",
-            }}
-            gradient={false}
-            speed={100}
-          >
-            Tobobobbobobobobobobbobobobobobobobobobobobobo | Allt kommer att bli
-            bra | In a galaxy far far away there is a place called... Tobo |
-            Allt kommer att bli bra
-            | Tobobobbobobobobobobbobobobobobobobobobobobobo | Allt kommer att
-            bli bra | In a galaxy far far away there is a place called... Tobo |
-            Allt kommer att bli bra |{" "}
-          </Marquee>
+        <div className={styles.ContentContainer}>
           <div className={styles.Title}>TOBO</div>
           <div className={styles.Date}>27 augusti</div>
           <div
@@ -145,43 +165,6 @@ function App() {
           </div>
         </div>
       </div>
-      {!audioPlaying ? (
-        <div
-          style={{
-            top: 0,
-            left: 0,
-            right: 0,
-            bottom: 0,
-            position: "absolute",
-            width: "100%",
-            height: "100%",
-            backgroundColor: "rgb(240,180,90)",
-            zIndex: 10,
-            display: "flex",
-            flexDirection: "column",
-            alignItems: "center",
-            justifyContent: "center",
-          }}
-          onClick={() => {
-            if (!audioPlaying) {
-              setAudioPlaying(true);
-              play();
-            }
-          }}
-        >
-          <div className={styles.OpenButton}>Klicka inte på tigerälgen!!!</div>
-          <Image
-            height={260}
-            width={260}
-            style={{
-              alignSelf: "center",
-              borderRadius: "5px",
-            }}
-            src={Moose}
-            alt="This is an animated gif image, but it does not move"
-          />
-        </div>
-      ) : null}
-    </div>
+    </>
   );
 }
