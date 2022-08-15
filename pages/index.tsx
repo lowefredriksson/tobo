@@ -58,7 +58,9 @@ function App() {
           onClick={() => {
             if (!audioPlaying) {
               setAudioPlaying(true);
-              play();
+              play({
+                forceSoundEnabled: true,
+              });
             }
           }}
         >
